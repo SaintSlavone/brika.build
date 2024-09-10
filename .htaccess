@@ -1,0 +1,12 @@
+<Files xmlrpc.php>
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+RewriteEngine On
+RewriteBase /
+
+# Если запрашиваемый файл или директория не существуют, перенаправить запрос на index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.html [L]
